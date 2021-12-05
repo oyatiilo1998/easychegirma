@@ -1,0 +1,14 @@
+
+
+syntax="proto3";
+package genproto;
+
+option go_package="genproto/setting_service";
+
+import "global_setting.proto";
+import "google/protobuf/empty.proto";
+
+service GlobalSettingService {
+    rpc Get(GSGetReq) returns (GlobalSetting) {}
+    rpc Update(GlobalSetting) returns (google.protobuf.Empty) {}
+}

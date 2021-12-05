@@ -1,0 +1,32 @@
+syntax="proto3";
+package genproto;
+
+option go_package="genproto/discussion_logic_service";
+
+import "step.proto";
+import "action.proto";
+import "diagram.proto";
+import "google/protobuf/empty.proto";
+
+service DiagramService {
+    // Note: Really important method which is to get the whole picture of business process 
+    rpc GetBusinessProcess(GetBusinessProcessRequest) returns (GetBusinessProcessResponse) {}
+    // Create diagram method for business process
+    rpc Create(CreateUpdateDiagram) returns (DLSCreateResponse){} 
+    // Get diagram method with all properties and nodes for business process
+    rpc Get(DLSGetRequest) returns (Diagram) {}
+    // Update diagram method to update diagram properties
+    rpc Update(CreateUpdateDiagram) returns (google.protobuf.Empty) {}    
+    // Get diagram method with all properties and nodes for business process
+    rpc GetAll(GetAllDiagramsRequest) returns (GetAllDiagramsResponse) {}
+    // Create diagram step starts with relationship 
+    rpc CreateDiagramStepRelation(CreateCheckDiagramStepRelationRequest) returns (google.protobuf.Empty) {}
+    // Check Existance between two nodes 
+    // For validation
+    rpc CheckExistance(CreateCheckDiagramStepRelationRequest) returns (DLSExistsResponse) {}
+    // Common delete method to delete node and its relations
+    rpc DeleteNode(DLSDeleteRequest) returns (google.protobuf.Empty) {}
+    // Common delete method to delete particular relationship
+    rpc DeleteRelation(DLSDeleteRequest) returns (google.protobuf.Empty) {}
+
+}

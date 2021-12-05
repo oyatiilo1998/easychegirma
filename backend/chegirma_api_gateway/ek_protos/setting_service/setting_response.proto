@@ -1,0 +1,30 @@
+syntax="proto3";
+
+package genproto;
+option go_package="genproto/setting_service";
+
+message CTCreateResponse {
+    string id = 1;
+}
+message CTGetRequest {
+    string id = 1;
+}
+message CTGetByStatusIdRequest {
+    string status_id = 1;
+}
+message CTEmptyResponse{}
+
+message CTDeleteRequest {
+    string id = 1;
+}
+
+message CTExistsRequest {
+    string id = 1;
+}
+
+message CTExistsResponse {
+    bool exist = 1;
+}
+message CTGetParentStatusRequest {
+    string parent_status_id = 1;
+}

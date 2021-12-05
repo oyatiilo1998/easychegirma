@@ -1,0 +1,67 @@
+.image-block {
+  width: 100%;
+  border-radius: 20px;
+  height: 164px;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+  margin-bottom: 20px;
+
+  .shadow {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+
+  .deleteBtn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #fff;
+    z-index: 11;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+  }
+}
+
+.FImageUpload {
+  box-sizing: border-box;
+  position: relative;
+  margin-bottom: 20px;
+
+  .dropzone {
+    width: 100%;
+    cursor: pointer;
+    position: static;
+    height: 164px;
+    left: 0px;
+    top: 0px;
+    border: 1px dashed #d5dadd;
+    box-sizing: border-box;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &.error {
+      border: 1px dashed rgba(247, 102, 89, 1);
+    }
+
+    .title {
+      font-size: 15px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 24px;
+      letter-spacing: -0.006em;
+      text-align: center;
+      margin: 8px 0;
+    }
+  }
+}

@@ -1,0 +1,23 @@
+.MainLayout {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+
+  .content-side {
+    flex: 1;
+    position: relative;
+    height: 100vh;
+    background: #F3F7FA;
+    overflow: auto;
+  }
+}
+
+.night-mode {
+  .MainLayout {
+  
+    .content-side {
+      background: #161C24;
+      background: linear-gradient(to top, #243B55, #161C24);
+    }
+  }
+}

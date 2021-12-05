@@ -1,0 +1,16 @@
+syntax = "proto3";
+package genproto;
+
+option go_package = "genproto/setting_service";
+
+message GlobalSetting {
+    int64 construction_cost = 1;
+    int64 land_tax_juridical = 2;
+    int64 land_tax_physical = 3;
+    int64 minimum_wage = 4;
+    string type = 5;
+}
+
+message GSGetReq {
+    string type = 1;
+}

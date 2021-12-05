@@ -1,0 +1,10 @@
+syntax="proto3";
+package genproto;
+
+option go_package="genproto/geo_service";
+
+import "geo.proto";
+
+service GeoService {
+    rpc Create(GeoCreateRequest) returns (GeoCreateResponse){}
+}

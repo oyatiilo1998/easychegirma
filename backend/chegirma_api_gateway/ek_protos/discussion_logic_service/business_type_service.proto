@@ -1,0 +1,15 @@
+syntax="proto3";
+package genproto;
+
+option go_package="genproto/discussion_logic_service";
+
+import "step.proto";
+import "business_type.proto";
+import "google/protobuf/empty.proto";
+
+
+service BusinessTypeService {
+    rpc Create(CreateUpdateBusinessType) returns (DLSCreateResponse){} 
+    rpc Update(CreateUpdateBusinessType) returns (google.protobuf.Empty) {}
+    rpc GetAll(GetAllBusinessTypesRequest) returns (GetAllBusinessTypesResponse) {}
+}

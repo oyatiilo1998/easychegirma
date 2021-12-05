@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package genproto;
+
+option go_package = "genproto/entity_service";
+
+import "entity_draft.proto";
+import "response.proto";
+import "google/protobuf/empty.proto";
+
+
+service EntityDraftService {
+    // Create method for entity draft collection
+    rpc Create(CreateUpdateEntityDraft) returns (ASCreateResponse) {}
+    // Single get method for entity draft collection
+    rpc Get(ASGetRequest) returns (EntityDraft) {}
+    // Getting all method for entity draft collection with any filters
+    rpc GetAll(GetAllEntityDraftsRequest) returns (GetAllEntityDraftsResponse) {}
+    // Update entity draft for each fields 
+    rpc Update(CreateUpdateEntityDraft) returns (google.protobuf.Empty) {}
+    // This method update only status to entity drafy collection
+    rpc UpdateEntityDraftStatus(UpdateEntityDraftStatusRequest) returns (google.protobuf.Empty) {}
+    // Method for Update status and comment fields entity draft
+    rpc ConfirmEntityDraft(ConfirmEntityDraftRequest) returns(google.protobuf.Empty) {}
+    // This method update entity draft's deleted at field, soft delete method
+    rpc Delete(ASDeleteRequest) returns(google.protobuf.Empty) {}
+    // Hard Delete, using for delete testing data, removes all relations
+    rpc DeleteFromDB(ASDeleteRequest) returns(google.protobuf.Empty) {}
+    // Check exists entity draft
+    rpc EntityDraftExists (ASExistsRequest) returns (ASExistsResponse) {}
+    // update entity draft properties
+    rpc UpdateEntityDraftPropertiesStatus(UpdateEntityDraftProperties) returns (google.protobuf.Empty) {}
+    // get last 10 drafts by update date
+    rpc GetExpired(GetExpiredDraftsRequest) returns (GetAllEntityDraftsResponse) {}
+}

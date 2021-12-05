@@ -1,0 +1,85 @@
+syntax = "proto3";
+
+package genproto;
+option go_package = "genproto/integration_service";
+
+message GetOrderRequest {
+    string entity_id = 1;
+}
+
+message GetOrderStatusRequest {
+    string entity_id = 1;
+}
+
+message OrderStatus {
+    string status_msg = 1;
+    string status_code = 2;
+}
+
+message GetAllOrdersRequest {
+    uint32 page = 1;
+    uint32 limit = 2;
+}
+
+message GetAllOrdersResponse {
+    repeated OrderDetails orders = 1;
+    uint64 count = 2;
+}
+
+message CreateOrderRequest {
+    string language = 1;
+    string soato = 2;
+    string name = 3;
+    double price = 4;
+    string address = 5;
+    int64 category = 6;
+    int64 closed = 7;
+    int64 prop_set = 8;
+    string additional_info = 9;
+    float latitude = 10;
+    float longitude = 11;
+    string entity_id = 12;
+    string situational_schema = 13;
+    string art = 14;
+    string topographics = 15;
+    repeated string gallery = 16;
+    int64 entity_type_code = 17;
+    string cdn_url = 18;
+}
+
+message CreateOrderResponse {
+    string result_msg = 1;
+    int64 result_code = 2;
+}
+
+message CheckOrderStatusRequest {
+    string entity_id = 1;
+}
+
+message CheckOrderStatusResponse {
+    string entity_id = 1;
+    string status_id = 2;
+    string progress = 3;
+}
+
+message OrderDetails {
+    string language = 1;
+    string soato = 2;
+    string name = 3;
+    double price = 4;
+    string address = 5;
+    int64 category = 6;
+    int64 closed = 7;
+    int64 prop_set = 8;
+    string additional_info = 9;
+    float latitude = 10;
+    float longitude = 11;
+    int64 created_at = 12;
+    int64 updated_at = 13;
+    string situational_schema = 14;
+    string art = 15;
+    string topographics = 16;
+    repeated string gallery = 17;
+    string entity_type_code = 18;
+    string cdn_url = 19;
+}

@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package genproto;
+
+option go_package = "genproto/integration_service";
+
+import "order.proto";
+
+service OrderService {
+    rpc Create(CreateOrderRequest) returns (CreateOrderResponse) {}
+    rpc Get(GetOrderRequest) returns (OrderDetails) {}
+    rpc GetStatus(GetOrderStatusRequest) returns (OrderStatus) {}
+    rpc GetAll(GetAllOrdersRequest) returns (GetAllOrdersResponse) {}
+    rpc CheckOrderStatus(CheckOrderStatusRequest) returns (CheckOrderStatusResponse) {}
+}

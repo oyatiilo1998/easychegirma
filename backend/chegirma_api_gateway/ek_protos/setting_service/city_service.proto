@@ -1,0 +1,18 @@
+
+
+syntax="proto3";
+package genproto;
+
+option go_package="genproto/setting_service";
+
+import "city.proto";
+import "google/protobuf/empty.proto";
+
+service CityService {
+    rpc Create(City) returns (CreatedResponse){} 
+    rpc Get(GetReq) returns (City) {}
+    rpc GetAll(GetAllCitiesRequest) returns (GetAllCitiesResponse) {}
+    rpc Update(City) returns (google.protobuf.Empty) {}
+    rpc CityExists(SSExistsRequest) returns (SSExistsResponse) {}
+    rpc GetByCode(GetByCodeRequest) returns (City) {}
+}

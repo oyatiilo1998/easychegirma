@@ -1,0 +1,13 @@
+syntax = "proto3";
+package genproto;
+
+option go_package = "genproto/setting_service";
+
+import "gis.proto";
+import "city.proto";
+
+service GisService {
+    rpc Create(Features) returns (CreatedResponse){}
+    rpc Get(GetReq) returns (Features) {}
+    rpc GetAll(GetAllDataRequest) returns (GetAllDataResponse) {}
+}

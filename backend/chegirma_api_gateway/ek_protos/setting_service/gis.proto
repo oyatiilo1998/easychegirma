@@ -1,0 +1,42 @@
+syntax = "proto3";
+package genproto;
+
+option go_package = "genproto/setting_service";
+
+
+message GisProperty {
+    string name = 1;
+    string num_gorny = 2;
+    string firm = 3;
+    string name_u = 4;
+    string raw = 5;
+    string region = 6;
+    string district = 7;
+    string receive_date = 8;
+    string ending_date = 9;
+    string kml_folder = 10;
+}
+
+message Geometry {
+    string coordinates = 1;
+    string type = 2;
+}
+
+message Features {
+    GisProperty Properties = 1;
+    Geometry Geometry = 2;
+}
+
+message GisData {
+    repeated Features Features = 1;
+}
+
+message GetAllDataRequest {
+    uint64 page = 1;
+    uint64 limit = 2;
+}
+
+message GetAllDataResponse {
+    repeated Features Features = 1;
+    uint64 count = 2;
+}

@@ -1,0 +1,92 @@
+syntax = "proto3";
+package genproto;
+
+option go_package = "genproto/discussion_logic_service";
+import "step.proto";
+import "action.proto";
+
+message Diagram {
+    string id = 1;
+    string name = 2;
+    string description = 3;
+    Position position = 4;
+    string created_at = 5;
+    string updated_at = 6;
+    uint64 type_code = 7;
+}
+message CreateUpdateDiagram {
+    string id = 1;
+    string name = 2;
+    string description = 3;
+    int64 position_x = 4;
+    int64 position_y = 5;
+    int64 type_code = 6;
+}
+message CreateCheckDiagramStepRelationRequest {
+    string step_id = 1;
+    string diagram_id = 2;
+}
+
+message GetAllDiagramsResponse {
+    repeated Diagram diagrams = 1;
+    int64 count = 2;
+}
+message GetAllDiagramsRequest {
+    int64 code = 1;
+    int64 page = 2;
+    int64 limit = 3;
+}
+message GetBusinessProcessRequest {
+    string diagram_id = 1;
+}
+message GetBusinessProcessResponse {
+    string id = 1;
+    string name = 2;
+    string description = 3;
+    repeated BusinessSteps steps = 4;
+    repeated Relation relations = 5;
+    repeated HeadTail head_tail = 6;
+}
+message HeadTail {
+    string id = 1;
+    string type = 2;
+    string tail_head_id = 3;
+    Position position = 4;
+}
+message BusinessSteps {
+    string id = 1;
+    string type = 2;
+    StepData data = 3;
+    Position position = 4;
+}
+message Relation {
+    string id = 1;
+    string type = 2;
+    string source = 3;
+    string source_handler = 4;
+    string target = 5;
+}
+message StepData {
+    string id = 1;
+    string role_id = 2;
+    string default_action_id = 3;
+    string organization_id = 4;
+    string name = 5;
+    string role_name = 6;
+    string organization_name = 7;
+    string description = 8;
+    int64 deadline = 9;
+    int64 created_at = 10;
+    int64 updated_at = 11;
+    repeated BusinessStepActions actions = 12;
+}
+message BusinessStepActions {
+    string id = 1;
+    ActionData data = 2;
+}
+
+
+message DLSDiagramStepRelationExistsResponse {
+    bool exist = 1;
+}
+message EmptyObject {}

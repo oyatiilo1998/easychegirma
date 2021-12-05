@@ -1,0 +1,57 @@
+syntax = "proto3";
+
+package genproto;
+option go_package = "genproto/user_service";
+import "staff.proto";
+
+message UpdatedFields {
+    string name_of_field = 1;
+    string old_value = 2;
+    string new_value = 3;
+}
+
+message ActionHistory {
+    string id = 1;
+    string user_id = 2;
+    string action = 3;
+    string entity_id = 4;
+    string entity_name = 5;
+    repeated UpdatedFields updated_fields = 6;
+    string created_at = 7;
+}
+
+message GetOneActionHistory {
+    string id = 1;
+    string user_id = 2;
+    string action = 3;
+    string entity_id = 4;
+    string entity_name = 5;
+    Staff user = 6;
+    repeated UpdatedFields updated_fields = 7;
+    string created_at = 8;
+}
+message GetAllActionHistoriesByEntityIDResponse {
+    repeated GetOneActionHistory action_histories = 1;
+}
+
+message GetAllActionHistoriesResponse {
+    repeated ActionHistory action_histories = 1;
+    uint32 count = 2;
+}
+
+message GetAllActionHistoriesRequest {
+    uint32 page = 1;
+    uint32 limit = 2;
+}
+
+message ImportActionHistory {
+    string id = 1;
+    string user_id = 2;
+    string action = 3;
+    string entity_id = 4;
+    string entity_name = 5;
+    repeated UpdatedFields updated_fields = 6;
+    string created_at = 7;
+    int64 external_id = 8;
+    int64 external_status_id = 9;
+}

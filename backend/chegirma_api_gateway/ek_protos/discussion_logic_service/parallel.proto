@@ -1,0 +1,52 @@
+syntax = "proto3";
+package genproto;
+
+import "step.proto";
+option go_package = "genproto/discussion_logic_service";
+
+message CreateUpdateParallelTail {
+    string tail_id = 1;
+    string head_id = 2;
+    string diagram_id = 3;
+    int64 position_tail_x = 4;
+    int64 position_tail_y = 5;
+}
+message CreateUpdateParallelHead {
+    string head_id = 1;
+    string diagram_id = 2;
+    int64 position_head_x = 3;
+    int64 position_head_y = 4;
+}
+
+message Parallel {
+    string head_id = 1;
+    string diagram_id = 2;
+    string type = 3;
+    Position position = 4;
+    Tail tail = 5;
+}
+
+message Tail {
+    string tail_id = 1;
+    string diagram_id = 2;
+    string type = 3;
+    Position position = 4;
+}
+message UpdateParallelHeadPositionRequest {
+    string id = 1;
+    int64 position_x = 2;
+    int64 position_y = 3;
+}
+message UpdateParallelTailPositionRequest {
+    string id = 1;
+    int64 position_x = 2;
+    int64 position_y = 3;
+}
+message CreateRelationTailSendsStepRequest {
+    string tail_id = 1;
+    string step_id = 2;
+}
+message CreateRelationHeadHasManyStepsRequest {
+    string head_id = 1;
+    string step_id = 2;
+}

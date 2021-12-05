@@ -1,0 +1,58 @@
+syntax = "proto3";
+
+package genproto;
+option go_package="genproto/user_service";
+import "organization.proto";
+
+message Branch {
+    string id = 1;
+    string name = 2;
+    string address = 3;
+    string website = 4;
+    string phone_number = 5;
+    string email = 6;
+    string director_first_name = 7;
+    string director_last_name = 8;
+    string director_middle_name = 9;
+    bool is_active = 10;
+    int64 external_id = 11;
+    int64 inn = 12;
+    int64 mfo = 13;
+    string index = 14;
+    Organization parent_organization = 15;
+    string created_at = 16;
+    string updated_at = 17;
+}
+message CreateUpdateBranch {
+    string id = 1;
+    string name = 2;
+    string address = 3;
+    string website = 4;
+    string phone_number = 5;
+    string email = 6;
+    string parent_organization_id = 7;
+    string director_first_name = 8;
+    string director_last_name = 9;
+    string director_middle_name = 10;
+    bool is_active = 11;
+    int64 external_id = 12;
+    int64 inn = 13;
+    int64 mfo = 14;
+    string index = 15;
+}
+
+message GetAllBranchesRequest {
+    string name = 1;
+    string parent_organization_id = 2;
+    string phone_number = 3;
+    uint32 page = 4;
+    uint32 limit = 5;
+}
+
+message GetAllBranchesResponse {
+    repeated Branch branches = 1;
+    int64 count = 2;
+}
+message DeleteRequest {
+     string id =1; 
+}

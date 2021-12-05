@@ -1,0 +1,26 @@
+syntax="proto3";
+package genproto;
+
+
+option go_package="genproto/discussion_logic_service";
+import "step.proto";
+
+message Finish {
+    string id = 1;
+    string diagram_id = 2;
+    string type = 3;
+    Position position = 4;
+    string created_at= 5;
+    string updated_at= 6;
+}
+message CreateUpdateFinish {
+    string Id = 1;
+    string diagram_id = 2;
+    string type = 3;
+    int64 position_x = 4;
+    int64 position_y = 5;
+}
+message CreateCheckActionFinishRequest {
+    string action_id = 1;
+    string finish_id = 2;
+}

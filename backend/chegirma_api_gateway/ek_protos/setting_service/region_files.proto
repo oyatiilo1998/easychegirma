@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package genproto;
+
+option go_package="genproto/setting_service";
+
+message RegionFiles {
+    string id = 1;
+    string region_id = 2;
+    string file_name = 3;
+    string url = 4;
+    string comment = 5;
+    string user = 6;
+    string type = 7;
+}
+
+message GetRegionFilesRequest {
+    string region_id = 1;
+    string type = 2;
+}
+
+message GetAllRegionFilesRequest {
+    string region_id = 1;
+    string search = 2;
+    uint32 page = 3;
+    uint32 limit = 4;
+    string type = 5;
+}
+
+message GetAllRegionFilesResponse {
+    repeated RegionFiles region_files = 1;
+    uint32 count = 2;
+}

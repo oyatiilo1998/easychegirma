@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package genproto;
+
+option go_package = "genproto/entity_service";
+
+import "group_property.proto";
+import "response.proto";
+import "google/protobuf/empty.proto";
+
+service GroupPropertyService {
+    rpc Create(CreateGroupProperty) returns (ASCreateResponse) {}
+    rpc Get(ASGetRequest) returns (GroupProperty) {}
+    rpc GetByStatusId(ASGetByStatusIdRequest) returns(GetAllGroupPropertyByStatusIdResponse) {}
+    rpc GetAll(GetAllGroupPropertiesRequest) returns(GetAllGroupPropertiesResponse) {}
+    rpc Update(CreateGroupProperty) returns(google.protobuf.Empty) {}
+    rpc GroupPropertyExists (ASExistsRequest) returns (ASExistsResponse) {}
+    rpc GetAllByType(GetAllGroupPropertiesByTypeRequest) returns(GetAllGroupPropertiesByTypeResponse) {}
+}

@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package genproto;
+option go_package="genproto/user_service";
+
+import "applicant.proto";
+import "branch.proto";
+import "google/protobuf/empty.proto";
+
+service BranchService {
+    rpc Create(CreateUpdateBranch) returns(CreateResponse) {}
+    rpc Get(GetRequest) returns(Branch) {}
+    rpc GetAll(GetAllBranchesRequest) returns(GetAllBranchesResponse) {}
+    rpc Update(CreateUpdateBranch) returns(google.protobuf.Empty) {}
+    rpc Delete(DeleteRequest) returns(google.protobuf.Empty) {}
+    rpc Exists(USExistsRequest) returns (USExistsResponse){}
+}

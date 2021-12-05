@@ -1,0 +1,80 @@
+{
+  "name": "fly-khiva-admin",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@date-io/moment": "^2.11.0",
+    "@emotion/react": "^11.4.1",
+    "@emotion/styled": "^11.3.0",
+    "@hookform/resolvers": "^2.8.2",
+    "@iconify/icons-ant-design": "^1.1.1",
+    "@iconify/icons-eva": "^1.1.0",
+    "@iconify/icons-ic": "^1.1.11",
+    "@iconify/icons-vscode-icons": "^1.1.7",
+    "@iconify/react": "^3.0.1",
+    "@mui/icons-material": "^5.0.1",
+    "@mui/lab": "^5.0.0-alpha.49",
+    "@mui/material": "^5.0.2",
+    "@mui/styles": "^5.0.1",
+    "@reduxjs/toolkit": "^1.6.1",
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "@tinymce/tinymce-react": "^3.13.0",
+    "add": "^2.0.6",
+    "axios": "^0.21.4",
+    "connected-react-router": "^6.9.1",
+    "convert-string-to-number": "^1.0.3",
+    "date-fns": "^2.25.0",
+    "formik": "^2.2.9",
+    "lodash": "^4.17.21",
+    "material-ui-numeric-input": "^3.0.1",
+    "mgr-pdf-viewer-react": "^1.0.3",
+    "moment": "^2.29.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-dropzone": "^11.4.2",
+    "react-helmet": "^6.1.0",
+    "react-hook-form": "^7.17.2",
+    "react-number-format": "^4.7.3",
+    "react-redux": "^7.2.5",
+    "react-router-dom": "^5.3.0",
+    "react-scripts": "4.0.3",
+    "react-spring": "^9.2.4",
+    "react-tabs": "^3.2.3",
+    "react-tsparticles": "^1.35.4",
+    "redux-persist": "^6.0.0",
+    "simplebar-react": "^2.3.6",
+    "web-vitals": "^1.0.1",
+    "yarn": "^1.22.11",
+    "yup": "^0.32.9"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@hookform/devtools": "^4.0.1",
+    "node-sass": "5.0.0"
+  }
+}

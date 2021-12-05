@@ -1,0 +1,32 @@
+
+.MainPage {
+  background-color: #eeeeee32;
+
+
+  .first-section {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .content {
+  
+      .carousel-block {
+        margin: 20px 0 50px 0;
+        border-radius: 30px;
+        overflow: hidden;
+
+        img {
+          object-fit: cover;
+          object-position: center;
+          height: 300px;
+          width: 100%;
+        }
+      }
+
+    }
+
+    
+  }
+
+}

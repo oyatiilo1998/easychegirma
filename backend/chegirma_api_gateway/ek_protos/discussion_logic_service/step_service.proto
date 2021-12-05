@@ -1,0 +1,19 @@
+syntax = "proto3";
+package genproto;
+
+option go_package = "genproto/discussion_logic_service";
+
+import "step.proto";
+import "google/protobuf/empty.proto";
+
+service StepService {
+    rpc Create(CreateUpdateStep) returns (DLSCreateResponse){}
+    rpc Get(DLSGetRequest) returns (GetOneStep) {}
+    rpc GetByRoleID(GetByRoleIDRequest) returns (GetByRoleIDResponse) {}
+    rpc Update(CreateUpdateStep) returns (google.protobuf.Empty) {}
+    rpc Delete(DLSDeleteRequest) returns (google.protobuf.Empty) {}
+    rpc UpdateStepPosition(UpdateStepPositionRequest) returns (google.protobuf.Empty) {}
+    rpc UpdateStepActions(UpdateStepActionsRequest) returns (google.protobuf.Empty) {}
+    rpc GetPreviousStatus(GetPrevRequest) returns (GetPrevResponse) {}
+    rpc GetStepsWithDeadline(google.protobuf.Empty) returns (GetStepWithDeadlineResponse) {}
+}

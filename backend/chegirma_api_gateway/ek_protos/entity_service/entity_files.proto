@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package genproto;
+
+option go_package="genproto/entity_service";
+
+message EntityFiles {
+    string id = 1;
+    string file_name = 2;
+    string url = 3;
+    string comment = 4;
+    string user = 5;
+}
+message GetAllEntityFilesRequest {
+    string search = 1;
+    uint32 page = 2;
+    uint32 limit = 3;
+}
+
+message GetAllEntityFilesResponse {
+    repeated EntityFiles entity_files = 1;
+    uint32 count = 2;
+}

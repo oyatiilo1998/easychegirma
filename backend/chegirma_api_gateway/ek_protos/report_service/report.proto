@@ -1,0 +1,13 @@
+syntax = "proto3";
+package genproto;
+
+option go_package = "genproto/report_service";
+
+message GetReportRequest{
+    string from_date = 1;
+    string to_date = 2;
+}
+
+message GetReportResponse{
+    string file = 1;
+}

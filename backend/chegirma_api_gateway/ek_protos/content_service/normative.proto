@@ -1,0 +1,36 @@
+syntax="proto3";
+
+package content;
+option go_package="genproto/content_service";
+
+import "content.proto";
+
+service NormativeService {
+    rpc Create(Normative) returns (NormativeResponse) {}
+    rpc Update(Normative) returns (NormativeResponse) {}
+    rpc Find(FindRequest) returns (FindNormativeResponse) {}
+    rpc Get(GetRequest) returns (NormativeResponse) {}
+    rpc Delete(DeleteRequest) returns (Empty) {}
+}
+
+message Normative {
+    string id = 1;
+    string title = 2;
+    string slug = 3;
+    string lang = 4;
+    string url_link = 5;
+    string description = 6;
+    bool active = 7;
+    string created_at = 8;
+    string updated_at = 9;
+    string date = 10;
+}
+
+message NormativeResponse {
+    Normative normative = 1;
+}
+
+message FindNormativeResponse {
+    repeated Normative normatives = 1;
+    int64 count = 2;
+}

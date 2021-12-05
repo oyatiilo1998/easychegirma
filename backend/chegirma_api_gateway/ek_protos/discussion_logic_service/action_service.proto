@@ -1,0 +1,33 @@
+syntax="proto3";
+package genproto;
+
+
+option go_package="genproto/discussion_logic_service";
+import "action.proto";
+import "step.proto";
+import "google/protobuf/empty.proto";
+// This service is to create action for the business process 
+service ActionService {
+    // This method is to create node
+    rpc Create(Action) returns (DLSCreateResponse) {}
+    // This method is to get single action node
+    rpc Get(DLSGetRequest) returns (GetOneAction) {}
+    // This method is to check existance between  two nodes 
+    // This is mainly for validation
+    // if exists, no change. If not please, create one 
+    rpc CheckExistance(CreateCheckActionSendsStepRequest) returns (DLSExistsResponse) {}
+    rpc CheckExistanceRelation(CreateCheckActionSendsParallelRequest) returns (DLSExistsResponse) {}
+    rpc CheckActionStatus(ActionStatusCheckRequest) returns (DLSExistsResponse) {}
+    // This method is to create action and finish relation Action - SENDS - Step
+    rpc CreateActionSendsStepRelation(CreateCheckActionSendsStepRequest) returns (DLSCreateResponse){}
+    //create action relation Action - SENDS - Parallel
+    rpc CreateActionSendsParallelRelation(CreateCheckActionSendsParallelRequest) returns (DLSCreateResponse){}
+    // This method is to update action node
+    rpc Update(Action) returns(google.protobuf.Empty){}
+    // This method is to update multiple action nodes
+    rpc UpdateMutiple(UpdateMultipleActions) returns(google.protobuf.Empty){}
+    // This method is to delete action node
+    rpc Delete(DLSDeleteRequest) returns(google.protobuf.Empty) {}
+}
+
+

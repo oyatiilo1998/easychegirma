@@ -1,0 +1,50 @@
+syntax = "proto3";
+
+package genproto;
+
+option go_package="genproto/entity_service";
+
+message Status {
+    string id = 1;
+    string parent_status_id = 2;
+    string name = 3;
+    string ru_name = 4;
+    string description = 5;
+    string color = 6;
+    string code = 7;
+    uint32 type_code = 8;
+    bool is_active = 9; 
+    string created_at = 10; 
+    string updated_at = 11; 
+}
+message GetOneStatusByID {
+    string id = 1;
+    string parent_status_id = 2;
+    string name = 3;
+    string ru_name = 4;
+    string description = 5;
+    string color = 6;
+    string code = 7;
+    uint32 type_code = 8;
+    bool is_active = 9; 
+    Status parent_status = 10;
+    string created_at = 11; 
+    string updated_at = 12; 
+}
+
+message GetAllStatusesRequest {
+    string name = 1;
+    string parent_status_id = 2;
+    uint32 type_code = 3;
+    uint32 page = 4;
+    uint32 limit = 5;
+}
+
+message GetAllStatusesResponse {
+    repeated Status statuses = 1;
+    uint32 count = 2;
+}
+
+message GetByExternalIDRequest {
+    int64 external_id = 1;
+}

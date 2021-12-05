@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package genproto;
+
+option go_package="genproto/setting_service";
+
+import "construction_type.proto";
+import "setting_response.proto";
+import "google/protobuf/empty.proto";
+
+service ConstructionTypeService {
+    rpc Create(CreateUpdateConstructionType) returns (CTCreateResponse) {}
+    rpc Get(CTGetRequest) returns (ConstructionType) {}
+    rpc GetAll(GetAllConstructionTypesRequest) returns(GetAllConstructionTypesResponse) {}
+    rpc Update(CreateUpdateConstructionType) returns(google.protobuf.Empty) {}
+    rpc Delete(CTDeleteRequest) returns(google.protobuf.Empty) {}
+    rpc ConstructionTypeExists(CTExistsRequest) returns (CTExistsResponse) {}
+}

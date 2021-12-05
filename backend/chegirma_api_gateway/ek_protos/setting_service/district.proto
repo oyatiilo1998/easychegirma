@@ -1,0 +1,67 @@
+syntax = "proto3";
+package genproto;
+option go_package = "genproto/setting_service";
+import "city.proto";
+import "region.proto";
+
+message District {
+    string id = 1;
+    string ru_name = 2;
+    string name = 3;
+    uint32 soato = 4;
+    uint32 code = 5;
+    City city = 6;
+    Region region = 7;
+    DistrictTax tax = 8;
+    DistrictCost cost = 9;
+}
+
+message CreateUpdateDistrict {
+    string id = 1;
+    string ru_name = 2;
+    string name = 3;
+    string city_id = 4;
+    string region_id = 5;
+    uint32 soato = 6;
+    uint32 code = 7;
+}
+
+message DistrictTaxRequest {
+    string district_id = 1;
+    float tax_per_square = 2;
+    string tax_start_date = 3;
+}
+
+message DistrictCostRequest {
+    string district_id = 1;
+    float cost_per_square = 2;
+    string cost_start_date = 3;
+}
+
+message DistrictTax {
+    float tax_per_square = 1;
+    string tax_start_date = 2;
+}
+
+message DistrictCost {
+    float cost_per_square = 1;
+    string cost_start_date = 2;
+}
+
+message GetAllDistrictsRequest {
+    string name = 1;
+    uint32 soato = 2;
+    uint32 page = 3;
+    uint32 limit = 4;
+    string region_id = 5;
+    string city_id = 6;
+}
+message GetAllDistrictsResponse {
+    uint32 count = 1;
+    repeated District districts = 2;
+}
+message GetAllByCityRegionRequest {
+    string region_id = 1;
+    string city_id = 2;
+    string name = 3;
+}

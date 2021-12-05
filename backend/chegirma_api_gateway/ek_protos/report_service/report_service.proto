@@ -1,0 +1,10 @@
+syntax = "proto3";
+package genproto;
+
+option go_package = "genproto/report_service";
+
+import "report.proto";
+
+service ReportService {
+    rpc GetExcel(GetReportRequest) returns (GetReportResponse){}
+}

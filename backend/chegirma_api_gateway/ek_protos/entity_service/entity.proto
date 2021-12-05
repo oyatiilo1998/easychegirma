@@ -1,0 +1,271 @@
+syntax = "proto3";
+
+package genproto;
+option go_package = "genproto/entity_service";
+import "status.proto";
+import "property.proto";
+import "entity_files.proto";
+
+message EntityCity {
+    string id = 1;
+    string ru_name = 2;
+    string name = 3;
+    uint64 soato = 4;
+    uint32 code = 5;
+}
+message EntityRegion {
+    string id = 1;
+    string ru_name = 2;
+    string name = 3;
+    uint64 soato = 4;
+    uint32 code = 5;
+}
+message EntityDistrict {
+    string id = 1;
+    string ru_name = 2;
+    string name = 3;
+    uint64 soato = 4;
+    uint32 code = 5;
+}
+
+message Entity {
+    string id = 1;
+    string registration_date = 2;
+    string address = 3;
+    string entity_soato = 4;
+    string entity_number = 8;
+    uint64 entity_type_code = 6;
+    EntityCity city = 9;
+    EntityRegion region = 10;
+    EntityDistrict district = 11;
+    Status status = 12;
+    repeated GetEntityProperty entity_properties = 13;
+    repeated string entity_files = 14;
+    string created_at = 15;
+    string updated_at = 16;
+}
+message GetEntity {
+    string id = 1;
+    string registration_date = 2;
+    string address = 3;
+    string revert_comment = 4;
+    string entity_soato = 5;
+    string entity_number = 6;
+    map<string,bool> organizations  = 7;
+    uint64 entity_type_code = 8;
+    uint64 version = 9;
+    EntityCity city = 10;
+    EntityRegion region = 11;
+    EntityDistrict district = 12;
+    Status status = 13;
+    repeated Draft entity_drafts = 14;
+    repeated GetEntityProperty entity_properties = 15;
+    repeated string entity_files = 16;
+    repeated string entity_gallery = 17;
+    string created_at = 18;
+    string updated_at = 19;
+    string entity_status_update = 20;
+    string deadline = 21;
+}
+message GetAllEntities {
+    string id = 1;
+    string registration_date = 2;
+    string address = 3;
+    string entity_soato = 4;
+    string entity_number = 6;
+    uint64 entity_type_code = 7;
+    uint64 version = 8;
+    EntityCity city = 9;
+    EntityRegion region = 10;
+    EntityDistrict district = 11;
+    Status status = 12;
+    repeated EntityProperty entity_properties = 17;
+    repeated string entity_files = 13;
+    repeated string entity_gallery = 14;
+    string created_at = 15;
+    string updated_at = 16;
+    string entity_status_update = 18;
+}
+
+message Draft {
+    string id = 1;
+    uint64 entity_number = 2;
+    string entity_soato = 3;
+    string comment = 4;
+    EntityCity city = 5;
+    EntityRegion region = 6;
+    EntityDistrict district = 7;
+    Status status = 8;
+    ApplicantEntityDraft applicant = 9;
+    string created_at = 10;
+    string updated_at = 11;
+}
+message GetAllForCacheResponse {
+    GetAllEntitiesResponse republic = 1;
+    GetAllEntitiesResponse region = 2;
+    GetAllEntitiesResponse district = 3;
+}
+message ApplicantEntityDraft {
+    string name = 1;
+    string user_id = 2;
+    string phone_number = 3;
+}
+message CreateUpdateEntity {
+    string id = 1;
+    string status_id = 2;
+    string staff_id = 3;
+    string registration_date = 4;
+    string address = 5;
+    string entity_soato = 6;
+    string entity_number = 8;
+    uint64 entity_type_code = 9;
+    EntityCity city = 10;
+    EntityRegion region = 11;
+    EntityDistrict district = 12;
+    repeated string entity_drafts = 13;
+    repeated EntityProperty entity_properties = 14;
+    repeated string entity_files = 15;
+    repeated string entity_gallery = 16;
+}
+message UpdateEntityProperties {
+    string id = 1;
+    string staff_id = 2;
+    string status_id = 3;
+    int64 deadline = 4;
+    map<string, bool> organizations = 5;
+    repeated EntityProperty entity_properties = 6;
+    repeated string entity_files = 7;
+    repeated string entity_gallery = 8;
+    string action_type = 9;
+}
+
+message UpdateEntityStatusRequest {
+    string status_id = 1;
+    string entity_id = 2;
+}
+
+message GetAllEntitiesRequest {
+    string entity_soato = 1;
+    string city_id = 2;
+    string region_id = 3;
+    string status_id = 4;
+    string staff_id = 5;
+    string entity_number = 6;
+    string from_date = 7;
+    string to_date = 8;
+    uint64 type_code = 9;
+    uint32 page = 10;
+    uint32 limit = 11;
+}
+
+message GetExpiredRequest {
+    int64 limit = 1;
+}
+
+message GetAllEntitiesResponse {
+    repeated GetAllEntities entities = 1;
+    uint64 count = 2;
+}
+message EntityProperty {
+    string property_id = 1;
+    string value = 2;
+}
+
+message GetEntityProperty {
+    GetProperty property = 1;
+    string value = 2;
+}
+
+message GetEntitiesByCityIdRequest {
+    string city_id = 1;
+}
+message GetEntityGallery {
+    string id = 1;
+    string url = 2;
+    string file_name = 3;
+}
+
+message GetAllByStaffIDRequest {
+    string staff_id = 1;
+    uint32 page = 2;
+    uint32 limit = 3;
+}
+
+
+message GetEntityCountResponse {
+    int64 free_count = 1;
+    int64 discussion_count = 2;
+    int64 auction_count = 3;
+    int64 sold_count = 4;
+}
+
+message RevertEntityStatus {
+    string status_id = 1;
+    string revert_comment = 2;
+    string entity_id = 3;
+}
+
+message GetEntityByCities {
+    string city_name  = 1;
+    int64 auction_sold = 2;
+    int64 rejected = 3;
+    int64 in_discussion = 4;
+    int64 in_auction = 5;
+}
+message GetEntityByCitiesResponse {
+    repeated GetEntityByCities entity_count_by_cities  = 1;
+}
+
+message GetEntityStatus {
+    string status_id = 1;
+    string status_name = 2;
+    int64  status_count = 3;
+}
+message GetEntityByStatusResponse {
+    repeated GetEntityStatus get_entity_by_status = 1;
+}
+
+message GetTypeCode {
+    string type_name = 1;
+    int64  type_count = 2;
+}
+message GetTypeCodeResponse {
+    repeated GetTypeCode get_type_code = 1;
+}
+
+message GetCollectionResponse {
+    repeated GetCollection collections = 1;
+}
+
+message GetCollectionRequest {
+    string collection_name = 1;
+    string search = 2;
+}
+
+message GetCollection {
+    string value = 1;
+    string label = 2;
+    repeated GetCollection children = 3;
+}
+
+message GetAllDistrictRequest {
+    string entity_soato = 1;
+}
+
+message GetAllDistrictCountResponse {
+    int64 free_count = 1;
+    int64 discussion_count = 2;
+    int64 auction_count = 3;
+    int64 sold_count = 4;
+}
+
+message GetAllDashExpiredEntitiesRequest{
+    string entity_soato = 1;
+    string city_id = 2;
+    string region_id = 3;
+    string status_id = 4;
+    string staff_id = 5;
+    string entity_number = 6;
+    uint32 page = 7;
+    uint32 limit = 8;
+}

@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package genproto;
+
+option go_package = "genproto/user_service";
+
+import "applicant.proto";
+import "google/protobuf/empty.proto";
+
+service ApplicantService {
+    rpc Create(Applicant) returns (Applicant) {}
+    rpc Get(GetRequest) returns (Applicant) {}
+    rpc GetByUserId(GetRequest) returns (Applicant) {}
+    rpc GetAll(GetAllApplicantsRequest) returns (GetAllApplicantsResponse) {}
+    rpc Update(Applicant) returns (google.protobuf.Empty) {}
+    rpc Exists(USExistsRequest) returns (USExistsResponse){}
+}

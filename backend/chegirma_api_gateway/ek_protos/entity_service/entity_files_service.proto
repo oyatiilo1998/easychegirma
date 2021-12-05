@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package genproto;
+
+option go_package="genproto/entity_service";
+
+import "entity_files.proto";
+import "response.proto";
+import "google/protobuf/empty.proto";
+
+service EntityFilesService {
+    rpc Create(EntityFiles) returns (ASCreateResponse) {}
+    rpc Get(ASGetRequest) returns(EntityFiles) {}
+    rpc GetAll(GetAllEntityFilesRequest) returns(GetAllEntityFilesResponse) {}
+    rpc Update(EntityFiles) returns(google.protobuf.Empty) {}
+    rpc Delete(ASDeleteRequest) returns(google.protobuf.Empty) {}
+    rpc EntityFilesExists (ASExistsRequest) returns (ASExistsResponse) {}
+
+}

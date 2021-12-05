@@ -1,0 +1,25 @@
+
+
+.Logo {
+  font-size: 60px;
+
+  span {
+    font-family: 'Aquire';
+    color: #EB3536;
+
+    &.right-block {
+      color: #fff;
+      margin-left: 5px;
+
+      .orange-letter {
+        color: #FF8729;
+      }
+    }
+  }
+
+  &.small {
+    font-size: 27px;
+    text-align: center;
+  }
+
+}

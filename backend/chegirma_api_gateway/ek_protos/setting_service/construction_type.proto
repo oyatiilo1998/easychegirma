@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package genproto;
+
+option go_package = "genproto/setting_service";
+
+message ConstructionType {
+    string id = 1;
+    string parent_id = 2;
+    string name = 3;
+    string ru_name = 4;
+    string created_at = 5;
+    string updated_at = 6;
+}
+message GetAllConstructionTypesRequest {
+    string name = 1;
+    uint32 page = 2;
+    uint32 limit = 3;
+}
+message GetAllConstructionTypesResponse {
+    repeated ConstructionType construction_types = 1;
+    uint32 count = 2;
+}
+message CreateUpdateConstructionType {
+    string id = 1;
+    string parent_id = 2;
+    string name = 3;
+    string ru_name = 4;
+    int64 external_id = 5;
+    int64 parent_external_id = 6;
+}

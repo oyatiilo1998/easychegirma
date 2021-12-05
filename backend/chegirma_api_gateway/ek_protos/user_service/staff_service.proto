@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package genproto;
+
+option go_package = "genproto/user_service";
+
+import "applicant.proto";
+import "staff.proto";
+import "google/protobuf/empty.proto";
+
+service StaffService {
+    rpc Create(CreateUpdateStaff) returns (CreateResponse) {}
+    rpc Get(GetRequest) returns (Staff) {}
+    rpc GetAll(GetAllStaffsRequest) returns (GetAllStaffsResponse) {}
+    rpc Update(CreateUpdateStaff) returns (google.protobuf.Empty) {}
+    rpc Exists(USExistsRequest) returns (USExistsResponse){}
+    rpc Login(LoginRequest) returns (LoginInfo) {}
+    rpc LoginExists(LoginExistsRequest) returns (USExistsResponse){}
+    rpc GetStaffCount(GetCountRequest) returns (GetCountResponse){}
+    //Update password requires old password and user id
+    rpc UpdatePassword(PasswordUpdateRequest) returns (google.protobuf.Empty) {}
+}

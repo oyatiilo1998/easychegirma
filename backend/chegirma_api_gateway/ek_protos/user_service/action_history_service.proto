@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package genproto;
+
+
+option go_package = "genproto/user_service";
+import "action_history.proto";
+import "applicant.proto";
+
+service ActionHistoryService {
+  rpc Create(ActionHistory) returns (CreateResponse){}
+  rpc Get(GetRequest) returns (ActionHistory){}
+  rpc GetByEntityID(GetByEntityIDRequest) returns (GetAllActionHistoriesByEntityIDResponse){}
+  rpc GetListByStaffID(GetRequest) returns (GetAllActionHistoriesResponse) {}
+  rpc GetAll(GetAllActionHistoriesRequest) returns (GetAllActionHistoriesResponse){}
+  rpc Delete(USDeleteRequest) returns (ActionHistory){}
+  rpc Exists(USExistsRequest) returns (USExistsResponse){}
+}

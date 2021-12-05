@@ -1,0 +1,15 @@
+syntax = "proto3";
+package genproto;
+
+option go_package = "genproto/setting_service";
+
+import "google/protobuf/empty.proto";
+import "global_action.proto";
+import "city.proto";
+
+service GlobalActionService {
+    rpc Create(CreateOrUpdateGlobalAction) returns (CreatedResponse){}
+    rpc Update(CreateOrUpdateGlobalAction) returns (google.protobuf.Empty) {}
+    rpc Get(GetReq) returns (GlobalAction) {}
+    rpc GetAll(GetAllGlobalActionsRequest) returns (stream GlobalAction) {}
+}

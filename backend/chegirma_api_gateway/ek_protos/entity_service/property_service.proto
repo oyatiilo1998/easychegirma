@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package genproto;
+
+option go_package="genproto/entity_service";
+
+import "property.proto";
+import "response.proto";
+import "google/protobuf/empty.proto";
+
+service PropertyService {
+    rpc Create(CreateUpdateProperty) returns (ASCreateResponse) {}
+    rpc Get(ASGetRequest) returns (Property) {}
+    rpc GetAll(GetAllPropertiesRequest) returns(GetAllPropertiesResponse) {}
+    rpc Update(CreateUpdateProperty) returns(google.protobuf.Empty) {}
+    rpc Delete(ASDeleteRequest) returns(google.protobuf.Empty) {}
+    rpc PropertyExists(ASExistsRequest) returns (ASExistsResponse) {}
+}

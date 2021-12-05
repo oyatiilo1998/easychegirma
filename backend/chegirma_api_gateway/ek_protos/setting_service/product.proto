@@ -1,0 +1,53 @@
+syntax = "proto3";
+package genproto;
+option go_package = "genproto/setting_service";
+import "category.proto";
+import "user.proto";
+message Product {
+    string id = 1;
+    string url = 2;
+    string name = 3;
+    string image_url = 4;
+    uint32 discount_amount = 5;
+    uint64 price_before = 6;
+    uint64 price_after = 7;
+    Category category = 8;
+    string from_time = 9;
+    string to_time = 10;
+    User owner = 11;
+    string description = 12;
+}
+
+message CreateUpdateProduct {
+    string id = 1;
+    string url = 2;
+    string name = 3;
+    string image_url = 4;
+    uint32 discount_amount = 5;
+    uint64 price_before = 6;
+    uint64 price_after = 7;
+    string category_id = 8;
+    string from_time = 9;
+    string to_time = 10;
+    string owner_id = 11;
+    string description = 12;
+}
+
+message GetAllProductsRequest {
+    string name = 1;
+    string category_id = 2;
+    uint32 page = 3;
+    uint32 limit = 4;
+    string owner_id = 5;
+}
+message GetAllProductsResponse {
+    uint32 count = 1;
+    repeated Product products = 2;
+}
+message GetAllByCategoryRequest{
+    string category_id = 1;
+    string name = 2;
+}
+message DeleteProductRequest {
+    string id = 1;
+}

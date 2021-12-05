@@ -1,0 +1,15 @@
+.FRow {
+  display: flex;
+  align-items: center;
+  width: 100%;
+
+  .label {
+    width: 35%;
+    transform: translateY(-13px);
+  }
+
+  .component {
+    flex: 1;
+    padding-left: 30px;
+  }
+}

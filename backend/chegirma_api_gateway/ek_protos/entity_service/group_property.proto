@@ -1,0 +1,98 @@
+syntax = "proto3";
+
+package genproto;
+
+option go_package = "genproto/entity_service";
+import "property.proto";
+import "status.proto";
+
+message GroupProperty {
+    string id = 1;
+    string name = 2;
+    string description = 3;
+    uint32 step = 4;
+    uint32 type = 5;
+    uint32 category = 6;
+    bool status = 7;
+    repeated Property properties = 8;
+    repeated Status read_statuses = 9;
+    repeated Status write_statuses = 10;
+    OrganizationModel organization = 11;
+}
+message GetAllGroupPropertyByStatusIdResponse {
+    repeated GetAllGroupPropertyByStatusID group_properties = 1;
+}
+message GetAllGroupPropertyByStatusID {
+    string id = 1;
+    string name = 2;
+    string description = 3;
+    uint32 step = 4;
+    uint32 type = 5;
+    uint32 category = 6;
+    bool status = 7;
+    bool is_disable = 8;
+    repeated Property properties = 9;
+    OrganizationModel organization = 10;
+}
+message GetAllGroupProperty {
+    string id = 1;
+    string name = 2;
+    string description = 3;
+    uint32 step = 4;
+    uint32 type = 5;
+    uint32 category = 6;
+    bool status = 7;
+    repeated GetProperties properties = 8;
+    repeated string read_statuses = 9;
+    repeated string write_statuses = 10;
+    OrganizationModel organization = 11;
+}
+
+message CreateGroupProperty {
+    string id = 1;
+    string name = 2;
+    string description = 3;
+    uint32 step = 4;
+    uint32 type = 5;
+    uint32 category = 6;
+    bool status = 7;
+    repeated GetProperties properties = 8;
+    repeated string read_statuses = 9;
+    repeated string write_statuses = 10;
+    OrganizationModel organization = 11;
+}
+
+message GetAllGroupPropertiesRequest {
+    string search = 1;
+    uint32 page = 2;
+    uint32 limit = 3;
+}
+message GetAllGroupPropertiesByTypeRequest {
+    uint32 type = 1;
+    uint32 step = 2;
+}
+
+message GetAllGroupPropertiesResponse {
+    repeated GetAllGroupProperty group_properties = 1;
+    uint32 count = 2;
+}
+
+message GetAllGroupPropertiesByTypeResponse {
+    repeated GroupProperty group_properties = 1;
+    uint32 count = 2;
+}
+
+message GetProperties {
+    string property_id = 1;
+    uint32 order = 2;
+}
+
+message Properties {
+    Property property = 1;
+    uint32 order = 2;
+}
+
+message OrganizationModel {
+    string id =1;
+    string name =2;
+}

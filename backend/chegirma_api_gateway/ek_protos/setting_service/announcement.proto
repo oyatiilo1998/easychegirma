@@ -1,0 +1,32 @@
+syntax = "proto3";
+package genproto;
+
+option go_package = "genproto/setting_service";
+
+message CreateOrUpdateAnnouncement {
+    string id = 1;
+    string announcement = 2;
+    string type = 3;
+    bool status = 4;
+    string active_time = 5;
+}
+
+message Announcement {
+    string id = 1;
+    string type = 3;
+    string active_time = 5;
+    string announcement = 2;
+    bool status = 4;
+    string updated_at = 7;
+    string created_at = 6;
+}
+
+message GetAllAnnouncementsRequest {
+    int64 limit = 1;
+    int64 page = 2;
+}
+
+message GetAllAnnouncementsResponse {
+    repeated Announcement announcements = 1;
+    int64 count = 2;
+}

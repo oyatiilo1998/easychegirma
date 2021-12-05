@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package genproto;
+
+option go_package="genproto/entity_service";
+
+import "status.proto";
+import "response.proto";
+import "google/protobuf/empty.proto";
+
+service StatusService {
+    rpc Create(Status) returns (ASCreateResponse) {}
+    rpc Get(ASGetRequest) returns(GetOneStatusByID) {}
+    rpc GetAll(GetAllStatusesRequest) returns(GetAllStatusesResponse) {}
+    rpc Update(Status) returns(google.protobuf.Empty) {}
+    rpc Delete(ASDeleteRequest) returns(google.protobuf.Empty) {}
+    rpc StatusExists(ASExistsRequest) returns (ASExistsResponse) {}
+    rpc GetParentStatus(ASGetParentStatusRequest) returns (Status) {}
+    rpc GetByExternalID (GetByExternalIDRequest) returns (Status) {}
+}

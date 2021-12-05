@@ -1,0 +1,29 @@
+syntax="proto3";
+package genproto;
+
+
+option go_package="genproto/discussion_logic_service";
+import "finish.proto";
+import "action.proto";
+import "step.proto";
+import "google/protobuf/empty.proto";
+
+// This service is to create  end of the business process 
+service FinishService {
+    // This method is to create finish node
+    rpc Create(CreateUpdateFinish) returns (Finish) {}
+    // This method is to create action and finish relation Action - END_WITH Finish
+    rpc CreateActionFinishRelation(CreateCheckActionFinishRequest) returns(DLSCreateResponse){}
+    // This method is to update finish node
+    rpc Update(CreateUpdateFinish) returns(google.protobuf.Empty){}
+    // This method is to get single finish node
+    rpc Get(DLSGetRequest) returns(Finish){}
+    // This method is to delete finish node
+    rpc Delete(DLSDeleteRequest) returns(google.protobuf.Empty){}
+    // This method is to check existance between  two nodes 
+    // This is mainly for validation
+    // if exists, no change. If not please, create one 
+    rpc CheckExistance(CreateCheckActionFinishRequest) returns (DLSExistsResponse) {}
+}
+
+

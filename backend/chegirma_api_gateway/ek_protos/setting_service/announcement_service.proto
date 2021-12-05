@@ -1,0 +1,15 @@
+syntax = "proto3";
+package genproto;
+
+option go_package = "genproto/setting_service";
+
+import "google/protobuf/empty.proto";
+import "announcement.proto";
+import "city.proto";
+
+service AnnouncementService {
+    rpc Create(CreateOrUpdateAnnouncement) returns (CreatedResponse){}
+    rpc Update(CreateOrUpdateAnnouncement) returns (google.protobuf.Empty) {}
+    rpc Get(GetReq) returns (Announcement) {}
+    rpc GetAll(GetAllAnnouncementsRequest) returns (GetAllAnnouncementsResponse) {}
+}

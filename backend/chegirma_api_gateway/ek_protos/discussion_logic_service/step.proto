@@ -1,0 +1,141 @@
+syntax = "proto3";
+package genproto;
+
+option go_package = "genproto/discussion_logic_service";
+import "action.proto";
+
+message CreateUpdateStep {
+    string id = 1;
+    string role_id = 2;
+    string diagram_id = 3;
+    string organization_id = 4;
+    string default_action_id = 5;
+    string name = 6;
+    string role_name = 7;
+    string description = 8;
+    string organization_name = 9;
+    string type = 10;
+    int64 deadline = 11;
+    int64 position_x = 12;
+    int64 position_y = 13;
+    repeated Action actions = 14;
+}
+message GetOneStep {
+    string id = 1;
+    GetOneStepData data = 2;
+    Position position = 3;
+}
+message GetOneStepData {
+    string id = 1;
+    string role_id = 2;
+    string diagram_id = 3;
+    string organization_id = 4;
+    string default_action_id = 5;
+    string name = 6;
+    string role_name = 7;
+    string organization_name = 8;
+    string description = 9;
+    string type = 10;
+    int64 deadline = 11;
+    string created_at = 12;
+    string updated_at = 13;
+    repeated GetStepActions actions = 14;
+}
+
+message GetStepWithDeadlineResponse {
+    repeated GetStepWithDeadline steps =1;
+}
+
+message GetStepWithDeadline {
+    string id = 1;
+    string role_id = 2;
+    string diagram_id = 3;
+    string organization_id = 4;
+    string default_action_id = 5;
+    string name = 6;
+    string role_name = 7;
+    string organization_name = 8;
+    string description = 9;
+    string type = 10;
+    int64 deadline = 11;
+    int64 created_at = 12;
+    int64 updated_at = 13;
+    ParallelInfo parallel_info = 14;
+    string status = 15;
+    Action default_action = 16;
+}
+
+message ParallelInfo {
+    HeadParallel head = 1;
+    repeated StepParallel steps = 2;
+}
+
+message StepParallel {
+    string id = 1;
+    string organization_id = 2;
+}
+
+message HeadParallel {
+    string id = 1;
+}
+
+message GetStepActions {
+    string id = 1;
+    ActionData data = 2;
+}
+
+message Position {
+    int64 x = 1;
+    int64 y = 2;
+}
+message UpdateStepPositionRequest {
+    string id = 1;
+    int64 position_x = 2;
+    int64 position_y = 3;
+}
+message DLSCreateResponse {
+    string id = 1;
+}
+message DLSGetRequest {
+    string id = 1;
+}
+message DLSDeleteRequest {
+    string id = 1;
+}
+message GetByRoleIDRequest {
+    string role_organization_id = 1;
+    string status_id = 2;
+    uint64 code = 3;
+    bool is_parallel = 4;
+}
+message GetByRoleIDResponse {
+    repeated RoleActions actions = 2;
+}
+message RoleActions {
+    string id = 1;
+    string name = 2;
+    string type = 3;
+    string description = 4;
+    string next_status_id = 5;
+    int64 order = 6;
+    int64 deadline = 7;
+    repeated ParallelOrganization organizations = 8;
+}
+message ParallelOrganization {
+    string organization_id = 1;
+    string organization_name = 2;
+}
+message UpdateStepActionsRequest {
+    string step_id = 1;
+    repeated UpdateActions actions = 2;
+}
+
+message GetPrevRequest{
+    string entity_id = 1;
+    string status_id = 2;
+    int64 code = 3;
+}
+
+message GetPrevResponse{
+    string previous_status_id = 1;
+}

@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+package genproto;
+option go_package = "genproto/user_service";
+
+// import "google/protobuf/empty.proto";
+
+message Organization {
+  string id = 1;
+  string name = 2;
+  string full_name = 3;
+  string description = 4;
+  bool status = 5;
+  int32 code = 6;
+  int32 external_id = 7;
+  string created_at = 8;
+  string updated_at = 9;
+
+}
+message CreateUpdateOrganization {
+  string id = 1;
+  string name = 2;
+  string full_name = 3;
+  string description = 4;
+  bool status = 5;
+  int32 code = 6;
+  int32 external_id = 7;
+
+}
+message GetAllOrganizationsRequest {
+  string name = 1;
+  int32 code = 2;
+  uint32 page = 3;
+  uint32 limit = 4;
+}
+message GetAllOrganizationsResponse {
+  uint32 count = 1;
+  repeated Organization organizations = 2;
+}

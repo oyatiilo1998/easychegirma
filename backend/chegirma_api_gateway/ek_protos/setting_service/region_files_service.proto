@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package genproto;
+
+option go_package="genproto/setting_service";
+
+import "region_files.proto";
+import "setting_response.proto";
+import "google/protobuf/empty.proto";
+
+service RegionFilesService {
+    rpc Create(RegionFiles) returns (CTCreateResponse) {}
+    rpc Get(CTGetRequest) returns(RegionFiles) {}
+    rpc GetLatestFile(GetRegionFilesRequest) returns(RegionFiles) {}
+    rpc GetAll(GetAllRegionFilesRequest) returns(GetAllRegionFilesResponse) {}
+    rpc Update(RegionFiles) returns(google.protobuf.Empty) {}
+    rpc Delete(CTDeleteRequest) returns(google.protobuf.Empty) {}
+    rpc RegionFilesExists(CTExistsRequest) returns (CTExistsResponse) {}
+}

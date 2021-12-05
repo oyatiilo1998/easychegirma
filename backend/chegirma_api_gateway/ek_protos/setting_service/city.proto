@@ -1,0 +1,39 @@
+syntax = "proto3";
+package genproto;
+
+option go_package = "genproto/setting_service";
+
+message CreatedResponse {
+    string id = 1;
+}
+message GetReq {
+    string id = 1;
+}
+message City {
+    string id = 1;
+    string ru_name = 2;
+    string name = 3;
+    uint32 soato = 4;
+    uint32 code = 5;
+}
+message GetAllCitiesRequest {
+    string name = 1;
+    uint32 soato = 2;
+    uint32 page = 3;
+    uint32 limit = 4;
+}
+message GetAllCitiesResponse {
+    uint32 count = 1;
+    repeated City cities = 2;
+}
+message SSExistsRequest {
+    string id = 1;
+}
+
+message SSExistsResponse {
+    bool exist = 1;
+}
+
+message GetByCodeRequest {
+    int64 code = 1;
+}

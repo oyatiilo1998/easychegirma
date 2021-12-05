@@ -1,0 +1,67 @@
+syntax="proto3";
+package genproto;
+
+
+option go_package="genproto/discussion_logic_service";
+
+message CreateCheckActionSendsStepRequest {
+    string action_id = 1;
+    string step_id = 2;
+}
+message CreateCheckActionSendsParallelRequest {
+    string parallel_head_id = 1;
+    string parallel_tail_id = 2;
+    string action_id = 3;
+}
+message CheckStepActionRelationRequest {
+    string action_id = 1;
+    string step_id = 2;
+}
+message DLSExistsResponse {
+    bool exist = 1;
+}
+
+message UpdateMultipleActions {
+    repeated UpdateActions actions = 1;
+}
+message ActionStatusCheckRequest {
+    string diagram_id = 1;
+    string next_status_id = 2;
+}
+message Action {
+    string id = 1;
+    string step_id = 2;
+    string name = 3;
+    string next_status_id = 4;
+    string description = 5;
+    string type = 6;
+    int64 order = 7;
+}
+message UpdateActions {
+    string id = 1;
+    string name = 2;
+    string next_status_id = 3;
+    string description = 4;
+    string type = 5;
+    int64 order = 6;
+}
+message ActionData {
+    string id = 1;
+    string name = 2;
+    string next_status_id = 3;
+    string description = 4;
+    string type = 5;
+    int64 order = 6;
+    int64 deadline = 7;
+    int64 created_at = 8;
+    int64 updated_at = 9;
+}
+
+message GetOneAction {
+    string id = 1;
+    string name = 2;
+    string next_status_id = 3;
+    string description = 4;
+    string type = 5;
+    int64 order = 6;
+}

@@ -1,0 +1,15 @@
+syntax = "proto3";
+package genproto;
+
+option go_package = "genproto/setting_service";
+
+import "google/protobuf/empty.proto";
+import "global_entity.proto";
+import "city.proto";
+
+service GlobalEntityService {
+    rpc Create(CreateOrUpdateGlobalEntity) returns (CreatedResponse){}
+    rpc Update(CreateOrUpdateGlobalEntity) returns (google.protobuf.Empty) {}
+    rpc Get(GetReq) returns (GlobalEntity) {}
+    rpc GetAll(GetAllGlobalEntitiesRequest) returns (stream GlobalEntity) {}
+}

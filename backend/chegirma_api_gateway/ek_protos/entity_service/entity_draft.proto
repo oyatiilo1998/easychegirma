@@ -1,0 +1,101 @@
+syntax = "proto3";
+
+package genproto;
+option go_package = "genproto/entity_service";
+import "status.proto";
+import "entity.proto";
+
+message ApplicantEntity {
+    string name = 1;
+    string user_id = 2;
+    string phone_number = 3;
+}
+message UpdateEntityDraftStatusRequest {
+    string status_id = 1;
+    string entity_draft_id = 2;
+}
+message DraftEntity {
+    string id = 1;
+    uint64 entity_draft_number = 2;
+}
+message EntityDraft {
+    string id = 1;
+    string entity_id = 2;
+    string comment = 3;
+    string entity_draft_soato = 4;
+    string entity_draft_number = 5;
+    EntityCity city = 6;
+    EntityRegion region = 7;
+    EntityDistrict district = 8;
+    Status status = 9;
+    ApplicantEntity applicant = 10;
+    Entity entity = 11;
+    repeated string entity_gallery = 12;
+    repeated GetEntityProperty entity_properties = 13;
+    string created_at = 14;
+    string updated_at = 15;
+}
+message GetAllEntityDrafts {
+    string id = 1;
+    string entity_id = 2;
+    string comment = 3;
+    string entity_draft_soato = 4;
+    string entity_draft_number = 5;
+    EntityCity city = 6;
+    EntityRegion region = 7;
+    EntityDistrict district = 8;
+    Status status = 9;
+    ApplicantEntity applicant = 10;
+    Entity entity = 11;
+    repeated EntityProperty entity_properties = 12;
+    repeated string entity_gallery = 13;
+    string created_at = 14;
+    string updated_at = 15;
+}
+message CreateUpdateEntityDraft {
+    string id = 1;
+    string entity_id = 2;
+    string entity_draft_soato = 3;
+    string status_id = 4;
+    string comment = 5;
+    string entity_draft_number = 6;
+    EntityCity city = 7;
+    EntityRegion region = 8;
+    EntityDistrict district = 9;
+    ApplicantEntity applicant = 10;
+    repeated string entity_drafts = 11;
+    repeated string entity_gallery = 12;
+    repeated EntityProperty entity_properties = 13;
+}
+message ConfirmEntityDraftRequest {
+    string entity_draft_id = 1;
+    string status_id = 2;
+    string entity_id = 3;
+    string comment = 4;
+}
+message GetAllEntityDraftsRequest {
+    string city_id = 1;
+    string region_id = 2;
+    string status_id = 3;
+    string user_id = 4;
+    string from_date = 5;
+    string to_date = 6;
+    string entity_draft_soato = 7;
+    string entity_draft_number = 8;
+    uint32 page = 9;
+    uint32 limit = 10;
+}
+
+message GetExpiredDraftsRequest {
+    int64 limit = 1;
+}
+
+message GetAllEntityDraftsResponse {
+    repeated GetAllEntityDrafts entity_drafts = 1;
+    uint64 count = 2;
+}
+message UpdateEntityDraftProperties {
+    string entity_draft_id = 1;
+    string status_id = 2;
+    repeated EntityProperty entity_properties = 3;
+}

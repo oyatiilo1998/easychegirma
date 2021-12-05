@@ -1,0 +1,31 @@
+syntax="proto3";
+
+package genproto;
+option go_package="genproto/entity_service";
+
+message ASCreateResponse {
+    string id = 1;
+}
+message ASGetRequest {
+    string id = 1;
+}
+message ASGetByStatusIdRequest {
+    string status_id = 1;
+    string organization_id = 2;
+}
+message ASEmptyResponse{}
+
+message ASDeleteRequest {
+    string id = 1;
+}
+
+message ASExistsRequest {
+    string id = 1;
+}
+
+message ASExistsResponse {
+    bool exist = 1;
+}
+message ASGetParentStatusRequest {
+    string parent_status_id = 1;
+}

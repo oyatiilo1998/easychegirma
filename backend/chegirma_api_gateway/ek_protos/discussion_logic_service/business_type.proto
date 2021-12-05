@@ -1,0 +1,30 @@
+syntax="proto3";
+package genproto;
+
+option go_package="genproto/discussion_logic_service";
+import "diagram.proto";
+message BusinessType {
+    string id = 1; 
+    string name = 2;  
+    string diagram_id = 3; 
+    string description = 4; 
+    int64 code = 5;
+    Diagram diagram = 6;
+    string created_at = 7; 
+    string updated_at = 8; 
+}
+message CreateUpdateBusinessType {
+    string id = 1; 
+    string name = 2; 
+    string diagram_id = 3; 
+    string description = 4; 
+    int64 code = 5;
+}
+message GetAllBusinessTypesRequest {
+        int64 page = 1;
+        int64 limit = 2;
+}
+message GetAllBusinessTypesResponse {
+    repeated BusinessType business_types = 1;
+    int64 count = 2; 
+}

@@ -1,0 +1,20 @@
+
+
+syntax="proto3";
+package genproto;
+
+option go_package="genproto/setting_service";
+
+import "product.proto";
+import "city.proto";
+import "google/protobuf/empty.proto";
+
+service ProductService {
+    rpc Create(CreateUpdateProduct) returns (CreatedResponse){} 
+    rpc Get(GetReq) returns (Product) {}
+    rpc GetAll(GetAllProductsRequest) returns (GetAllProductsResponse) {}
+    rpc Update(CreateUpdateProduct) returns (google.protobuf.Empty) {}
+    rpc Delete(DeleteProductRequest) returns (google.protobuf.Empty) {}
+    rpc ProductExists(SSExistsRequest) returns (SSExistsResponse) {}
+    rpc GetByCode(GetByCodeRequest) returns (Product) {}
+}

@@ -1,0 +1,75 @@
+syntax = "proto3";
+
+package genproto;
+option go_package = "genproto/user_service";
+
+message Applicant {
+    string id = 1;
+    string first_name = 2;
+    string last_name = 3;
+    string gender = 4;
+    string phone_number = 5;
+    string user_type = 6;
+    string middle_name = 7;
+    string full_name = 8;
+    string nationality = 9;
+    string permanent_address = 10;
+    string passport_number = 11;
+    string passport_issue_date = 12;
+    string passport_expiry_date = 13;
+    string passport_issue_place = 14;
+    string pin = 15;
+    string email = 16;
+    string inn = 17;
+    string birth_date = 18;
+    string birth_place = 19;
+    string citizenship = 20;
+    string applicant_type = 21;
+    string login = 22;
+    string password = 23;
+    string created_at = 24;
+    string updated_at = 25;
+}
+
+
+message GetAllApplicantsRequest {
+    string full_name = 1;
+    string phone_number = 2;
+    string user_type = 3;
+    string role_id = 4;
+    string passport_number = 5;
+    string pinfl = 6;
+    uint32 page = 7;
+    uint32 limit = 8;
+}
+
+message GetAllApplicantsResponse {
+    repeated Applicant applicants = 1;
+    uint32 count = 2;
+}
+message CreateResponse {
+    string id = 1;
+}
+message GetAllRequest {
+    string search = 1;
+    uint32 page = 2;
+    uint32 limit = 3;
+}
+message GetRequest {
+    string id = 1;
+}
+message USDeleteRequest {
+    string id = 1;
+}
+message GetByEntityIDRequest {
+    string entityId = 1;
+}
+message EmptyResponse{}
+
+message USExistsRequest {
+    string id = 1;
+}
+
+message USExistsResponse {
+    bool exist = 1;
+}

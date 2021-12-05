@@ -1,0 +1,18 @@
+syntax = "proto3";
+package genproto;
+
+option go_package = "genproto/geo_service";
+
+message GeoCreateRequest {
+    string file_id = 1;
+}
+
+message GeoCreateResponse {
+    string type = 1;
+    Geometry2 geometry = 2;
+}
+
+message Geometry2 {
+    string type = 1;
+    string coordinates = 2;
+}

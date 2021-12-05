@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+package genproto;
+
+option go_package = "genproto/entity_service";
+
+import "entity.proto";
+import "response.proto";
+import "google/protobuf/empty.proto";
+
+
+service EntityService {
+    rpc Create(CreateUpdateEntity) returns (ASCreateResponse) {}
+    rpc Get(ASGetRequest) returns (GetEntity) {}
+    rpc GetAll(GetAllEntitiesRequest) returns (GetAllEntitiesResponse) {}
+    rpc GetAllWithProperties(GetAllEntitiesRequest) returns (GetAllEntitiesResponse) {}
+    rpc GetAllResponse(GetAllEntitiesRequest) returns(GetAllForCacheResponse){}
+    rpc GetCount(GetAllEntitiesRequest) returns (GetEntityCountResponse) {}
+    // Dashboard
+    rpc GetExpired(GetExpiredRequest) returns (GetAllEntitiesResponse) {}
+    rpc GetDashboardCount(GetAllEntitiesRequest) returns (GetEntityCountResponse) {}
+    rpc GetAllNewEntities(GetAllEntitiesRequest) returns(GetAllEntitiesResponse){}
+    rpc GetEntityCountsByCities(google.protobuf.Empty) returns(GetEntityByCitiesResponse){}
+    rpc GetDashboardExpired(GetAllDashExpiredEntitiesRequest) returns (GetAllEntitiesResponse){}
+    //Dashboard get entity status_count
+    rpc GetEntityCountsByStatus(google.protobuf.Empty) returns(GetEntityByStatusResponse) {}
+    rpc GetTypeCodeCount(google.protobuf.Empty) returns(GetTypeCodeResponse) {}
+    rpc GetAllDistrictCount(GetAllDistrictRequest) returns(GetAllDistrictCountResponse) {}
+    
+    rpc Update(CreateUpdateEntity) returns (google.protobuf.Empty) {}
+    rpc Delete(ASDeleteRequest) returns(google.protobuf.Empty) {}
+    rpc EntityExists (ASExistsRequest) returns (ASExistsResponse) {}
+    rpc UpdateEntityStatus(UpdateEntityStatusRequest) returns (google.protobuf.Empty) {}
+    rpc UpdateEntityStatusByActionID(UpdateEntityProperties) returns (google.protobuf.Empty) {}
+    rpc UpdateEntityPropertiesStaffID(UpdateEntityProperties) returns (google.protobuf.Empty) {}
+    rpc RevertEntityStatusId(RevertEntityStatus) returns (google.protobuf.Empty) {}
+    rpc GetCollection(GetCollectionRequest) returns (GetCollectionResponse) {}
+}

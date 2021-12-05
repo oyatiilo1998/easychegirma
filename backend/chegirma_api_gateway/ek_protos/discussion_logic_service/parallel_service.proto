@@ -1,0 +1,18 @@
+syntax = "proto3";
+package genproto;
+
+option go_package = "genproto/discussion_logic_service";
+
+import "step.proto";
+import "parallel.proto";
+import "google/protobuf/empty.proto";
+
+service ParallelService {
+    rpc CreateHead(CreateUpdateParallelHead) returns (DLSCreateResponse){}
+    rpc CreateTail(CreateUpdateParallelTail) returns (DLSCreateResponse){}
+    rpc Get(DLSGetRequest) returns (Parallel) {}
+    rpc UpdateHead(UpdateParallelHeadPositionRequest) returns (google.protobuf.Empty) {}
+    rpc UpdateTail(UpdateParallelTailPositionRequest) returns (google.protobuf.Empty) {}
+    rpc CreateRelationHeadHasManySteps(CreateRelationHeadHasManyStepsRequest) returns (DLSCreateResponse) {}
+    rpc CreateRelationTailSendsStep(CreateRelationTailSendsStepRequest) returns (DLSCreateResponse) {}
+}

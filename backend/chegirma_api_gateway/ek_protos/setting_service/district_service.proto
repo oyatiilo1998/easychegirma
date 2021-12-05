@@ -1,0 +1,19 @@
+syntax="proto3";
+package genproto;
+
+option go_package="genproto/setting_service";
+
+import "district.proto";
+import "city.proto";
+import "google/protobuf/empty.proto";
+
+service DistrictService {
+    rpc Create(CreateUpdateDistrict) returns (CreatedResponse){} 
+    rpc Get(GetReq) returns (District) {}
+    rpc GetAll(GetAllDistrictsRequest) returns (GetAllDistrictsResponse) {}
+    rpc GetAllByCityRegion (GetAllByCityRegionRequest) returns (GetAllDistrictsResponse);
+    rpc Update(CreateUpdateDistrict) returns (google.protobuf.Empty) {}
+    rpc DistrictExists (SSExistsRequest) returns (SSExistsResponse) {}
+    rpc UpdateDistrictCost(DistrictCostRequest) returns (google.protobuf.Empty) {}
+    rpc UpdateDistrictTax(DistrictTaxRequest) returns (google.protobuf.Empty) {}
+}
