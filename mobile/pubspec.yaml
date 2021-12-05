@@ -1,0 +1,40 @@
+name: chegirma
+description: A new Flutter project.
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.2
+  intl: ^0.17.0
+  get: ^4.3.8
+  get_storage: ^2.0.3
+  dio: ^4.0.1
+  retrofit: ^2.0.1
+  flutter_svg: ^0.23.0+1
+  cached_network_image: ^3.1.0
+  keyboard_dismisser: ^2.0.0
+  location: ^4.3.0
+  flutter_webview_plugin: ^0.4.0
+  mask_text_input_formatter: ^2.0.0
+  url_launcher: ^6.0.12
+  carousel_slider: ^4.0.0
+  money_formatter: ^0.0.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^1.0.0
+  retrofit_generator: any
+  build_runner: ^2.1.4
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/svg/
+    - assets/png/
