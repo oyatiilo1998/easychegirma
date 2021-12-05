@@ -4,7 +4,7 @@ import (
 	"context"
 	"net/http"
 
-	"chegirma_api_gateway/ek_variables/ek_setting_service"
+	"chegirma_api_gateway/ek_variables/chegirma_setting_service"
 	"chegirma_api_gateway/genproto/setting_service"
 
 	"github.com/gin-gonic/gin"
@@ -17,7 +17,7 @@ import (
 // @Tags user
 // @Accept json
 // @Produce json
-// @Param user body ek_setting_service.CreateUpdateUserSwag  true "User"
+// @Param user body chegirma_setting_service.CreateUpdateUserSwag  true "User"
 // @Success 201 {object} setting_service.CreatedResponse
 // @Failure 400 {object} ek_variables.FailureResponse
 // @Failure 404 {object} ek_variables.FailureResponse
@@ -25,7 +25,7 @@ import (
 // @Failure 503 {object} ek_variables.FailureResponse
 func (h *handlerV1) CreateUser(c *gin.Context) {
 	var (
-		user   ek_setting_service.CreateUpdateUserSwag
+		user   chegirma_setting_service.CreateUpdateUserSwag
 		userID = primitive.NewObjectID().Hex()
 		// userInfo, _ = h.UserInfo(c, true)
 	)
@@ -140,7 +140,7 @@ func (h *handlerV1) GetAllUsers(c *gin.Context) {
 // @Accept json
 // @Produce json
 // @Param user_id path string  true "user_id"
-// @Param user body ek_setting_service.CreateUpdateUserSwag true "user"
+// @Param user body chegirma_setting_service.CreateUpdateUserSwag true "user"
 // @Success 200 {object} setting_service.CreatedResponse
 // @Failure 400 {object} ek_variables.FailureResponse
 // @Failure 404 {object} ek_variables.FailureResponse

@@ -25,7 +25,7 @@ const CImageUpload = ({value, onChange, error}) => {
         },
       })
       .then((res) => {
-        const url = "https://cdn.ekadastr.udevs.io/ekadastr/" + res.file_path
+        const url = "https://cdn.chegirma.udevs.io/chegirma/" + res.file_path
         onChange(url)
       })
       .finally(() => setLoader(false))

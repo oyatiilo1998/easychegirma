@@ -5,7 +5,7 @@ import (
 	"net/http"
 
 	"chegirma_api_gateway/ek_variables"
-	"chegirma_api_gateway/ek_variables/ek_setting_service"
+	"chegirma_api_gateway/ek_variables/chegirma_setting_service"
 	"chegirma_api_gateway/genproto/setting_service"
 
 	"github.com/gin-gonic/gin"
@@ -18,7 +18,7 @@ import (
 // @Tags product
 // @Accept json
 // @Produce json
-// @Param product body ek_setting_service.CreateUpdateProductSwag  true "Product"
+// @Param product body chegirma_setting_service.CreateUpdateProductSwag  true "Product"
 // @Success 201 {object} setting_service.CreatedResponse
 // @Failure 400 {object} ek_variables.FailureResponse
 // @Failure 404 {object} ek_variables.FailureResponse
@@ -26,7 +26,7 @@ import (
 // @Failure 503 {object} ek_variables.FailureResponse
 func (h *handlerV1) CreateProduct(c *gin.Context) {
 	var (
-		product   ek_setting_service.CreateUpdateProductSwag
+		product   chegirma_setting_service.CreateUpdateProductSwag
 		productID = primitive.NewObjectID().Hex()
 		// userInfo, _ = h.UserInfo(c, true)
 	)
@@ -153,7 +153,7 @@ func (h *handlerV1) GetAllProducts(c *gin.Context) {
 // @Accept json
 // @Produce json
 // @Param product_id path string  true "product_id"
-// @Param product body ek_setting_service.CreateUpdateProductSwag true "product"
+// @Param product body chegirma_setting_service.CreateUpdateProductSwag true "product"
 // @Success 200 {object} setting_service.CreatedResponse
 // @Failure 400 {object} ek_variables.FailureResponse
 // @Failure 404 {object} ek_variables.FailureResponse

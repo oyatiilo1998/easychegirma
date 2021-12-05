@@ -33,7 +33,7 @@ deploy_to_prod:
     - apk update && apk add build-base
 
   script:
-    - ssh -o StrictHostKeyChecking=no $EKADASTR_PROD_USER@$EKADASTR_PROD_HOST 'docker service update --with-registry-auth --image '$CI_REGISTRY'/'$CI_PROJECT_NAMESPACE'/'$CI_PROJECT_NAME':'$CI_PIPELINE_IID' '$CI_PROJECT_NAME''
+    - ssh -o StrictHostKeyChecking=no $chegirma_PROD_USER@$chegirma_PROD_HOST 'docker service update --with-registry-auth --image '$CI_REGISTRY'/'$CI_PROJECT_NAMESPACE'/'$CI_PROJECT_NAME':'$CI_PIPELINE_IID' '$CI_PROJECT_NAME''
   only:
     - master
 

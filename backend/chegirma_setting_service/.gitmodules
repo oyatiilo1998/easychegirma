@@ -1,6 +1,6 @@
 [submodule "ek_protos"]
 	path = ek_protos
-	url = ../../ekadastr/ek_protos.git
+	url = ../../chegirma/ek_protos.git
 [submodule "ek_variables"]
 	path = ek_variables
-	url = ../../ekadastr/ek_variables.git
+	url = ../../chegirma/ek_variables.git

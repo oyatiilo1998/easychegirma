@@ -1,4 +1,4 @@
-package ek_setting_service
+package chegirma_setting_service
 
 import "go.mongodb.org/mongo-driver/bson/primitive"
 

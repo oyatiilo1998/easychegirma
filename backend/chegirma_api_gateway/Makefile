@@ -7,7 +7,7 @@ APP_CMD_DIR=${CURRENT_DIR}/cmd
 REGISTRY=gitlab.udevs.io:5050
 TAG=latest
 ENV_TAG=latest
-PROJECT_NAME=ekadastr
+PROJECT_NAME=chegirma
 
 
 build:

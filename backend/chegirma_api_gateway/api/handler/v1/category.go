@@ -4,7 +4,7 @@ import (
 	"context"
 	"net/http"
 
-	"chegirma_api_gateway/ek_variables/ek_setting_service"
+	"chegirma_api_gateway/ek_variables/chegirma_setting_service"
 	"chegirma_api_gateway/genproto/setting_service"
 
 	"github.com/gin-gonic/gin"
@@ -17,7 +17,7 @@ import (
 // @Tags category
 // @Accept json
 // @Produce json
-// @Param category body ek_setting_service.CreateUpdateCategorySwag  true "Category"
+// @Param category body chegirma_setting_service.CreateUpdateCategorySwag  true "Category"
 // @Success 201 {object} setting_service.CreatedResponse
 // @Failure 400 {object} ek_variables.FailureResponse
 // @Failure 404 {object} ek_variables.FailureResponse
@@ -25,7 +25,7 @@ import (
 // @Failure 503 {object} ek_variables.FailureResponse
 func (h *handlerV1) CreateCategory(c *gin.Context) {
 	var (
-		category   ek_setting_service.CreateUpdateCategorySwag
+		category   chegirma_setting_service.CreateUpdateCategorySwag
 		categoryID = primitive.NewObjectID().Hex()
 		// userInfo, _ = h.UserInfo(c, true)
 	)
@@ -148,7 +148,7 @@ func (h *handlerV1) GetAllCategories(c *gin.Context) {
 // @Accept json
 // @Produce json
 // @Param category_id path string  true "category_id"
-// @Param category body ek_setting_service.CreateUpdateCategorySwag true "category"
+// @Param category body chegirma_setting_service.CreateUpdateCategorySwag true "category"
 // @Success 200 {object} setting_service.CreatedResponse
 // @Failure 400 {object} ek_variables.FailureResponse
 // @Failure 404 {object} ek_variables.FailureResponse
